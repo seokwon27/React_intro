@@ -27,7 +27,10 @@ function App() {
       silver: silver,
       bronze: bronze
     }
-    setmedals([...medals, newMedal])
+    medals.some((medal) => {
+      return medal.country === country
+    }) ? alert("이미 존재한는 국가명입니다.") :
+      setmedals([...medals, newMedal])
   }
 
   //업데이트 버튼
@@ -38,20 +41,20 @@ function App() {
     } else {
       return (
         setmedals(
-        medals.map((medal) => {
-          if (medal.country === country) {
-            const newMedal = {
-              ...medal,
-              country: country,
-              gold: gold,
-              silver: silver,
-              bronze: bronze
+          medals.map((medal) => {
+            if (medal.country === country) {
+              const newMedal = {
+                ...medal,
+                country: country,
+                gold: gold,
+                silver: silver,
+                bronze: bronze
+              }
+              medal = newMedal
+              return medal;
             }
-            medal = newMedal
-            return medal;
-          }
-          return medal
-        }))
+            return medal
+          }))
       )
     }
 
@@ -101,7 +104,7 @@ function App() {
       <div>
         {/* 메달집계*/}
 
-        <Tbody medals={medals} deleteMedalHandler={deleteMedalHandler}/>
+        <Tbody medals={medals} deleteMedalHandler={deleteMedalHandler} />
 
 
       </div>
@@ -112,7 +115,7 @@ function App() {
 export default App
 
 //메달현황 컴포넌트
-const Tbody = ({ medals, deleteMedalHandler}) => {
+const Tbody = ({ medals, deleteMedalHandler }) => {
   console.log(medals)
   return (
     medals.length === 0 ? (
