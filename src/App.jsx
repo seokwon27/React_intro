@@ -12,9 +12,9 @@ function App() {
 
   //인풋 핸들러
   const inputCountryHandler = (e) => { setCountry(e.target.value) }
-  const inputGoldHandler = (e) => { setGold(e.target.value) }
-  const inputSilverHandler = (e) => { setSilver(e.target.value) }
-  const inputBronzeHandler = (e) => { setBronze(e.target.value) }
+  const inputGoldHandler = (e) => { setGold(Number(e.target.value)) }
+  const inputSilverHandler = (e) => { setSilver(Number(e.target.value)) }
+  const inputBronzeHandler = (e) => { setBronze(Number(e.target.value)) }
 
 
 
@@ -73,6 +73,12 @@ function App() {
     if(result){setmedals(deletedMedals)};
   };
 
+  //초기화 버튼
+  const initMedalHandler = (event) => {
+    event.preventDefault();
+    const result = confirm("정말 초기화 하시겠습니까? 입력된 모든 정보가 삭제됩니다.")
+    if(result){setmedals([])}
+  }
 
   return (
     <div className='container'>
@@ -107,10 +113,12 @@ function App() {
       </form>
       <div>
         {/* 메달집계*/}
-
-        <Tbody medals={medals} deleteMedalHandler={deleteMedalHandler} />
-
-
+        <Table medals={medals} deleteMedalHandler={deleteMedalHandler} />
+      </div>
+      <div style={{
+        marginTop: "20px"
+      }}>
+        <button onClick={initMedalHandler}>초기화</button>
       </div>
     </div>
   )
@@ -119,7 +127,7 @@ function App() {
 export default App
 
 //메달현황 컴포넌트
-const Tbody = ({ medals, deleteMedalHandler }) => {
+const Table = ({ medals, deleteMedalHandler }) => {
   return (
     medals.length === 0 ? (
       <p>아직 추가된 국가가 없습니다. 메달을 추적하세요!</p>
