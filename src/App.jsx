@@ -33,13 +33,25 @@ function App() {
   //업데이트 버튼
   const handleUpdateCountry = (event) => {
     event.preventDefault();
-    if(!medals.some((medal) => medal.country === country)){
-      return alert("해당 국가는 없습니다.")
+    if (!medals.some((medal) => medal.country === country)) {
+      return alert("일치하는 국가명이 없습니다.")
     } else {
-      return(
-        medals.map((medal)=> {
-          
-        })
+      return (
+        setmedals(
+        medals.map((medal) => {
+          if (medal.country === country) {
+            const newMedal = {
+              ...medal,
+              country: country,
+              gold: gold,
+              silver: silver,
+              bronze: bronze
+            }
+            medal = newMedal
+            return medal;
+          }
+          return medal
+        }))
       )
     }
 
