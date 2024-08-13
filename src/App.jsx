@@ -27,6 +27,7 @@ function App() {
       silver: silver,
       bronze: bronze
     }
+    if(!country){ return alert('국가명을 입력해주세요.')}
     medals.some((medal) => {
       return medal.country === country
     }) ? alert("이미 존재한는 국가명입니다.") :
@@ -36,6 +37,7 @@ function App() {
   //업데이트 버튼
   const handleUpdateCountry = (event) => {
     event.preventDefault();
+    if(!country){ return alert('국가명을 입력해주세요.')}
     if (!medals.some((medal) => medal.country === country)) {
       return alert("일치하는 국가명이 없습니다.")
     } else {
