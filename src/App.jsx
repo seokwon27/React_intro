@@ -118,7 +118,6 @@ export default App
 
 //메달현황 컴포넌트
 const Tbody = ({ medals, deleteMedalHandler }) => {
-  console.log(medals)
   return (
     medals.length === 0 ? (
       <p>아직 추가된 국가가 없습니다. 메달을 추적하세요!</p>
