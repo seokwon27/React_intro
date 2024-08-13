@@ -82,3 +82,10 @@ td button {
   border-radius: 4px;
   cursor: pointer;
 }
+
+input[type=text], input[type=number] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}

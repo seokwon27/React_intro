@@ -79,22 +79,22 @@ function App() {
 
         <div className='input-field'>
           <label>국가명</label>
-          <input placeholder='국가 입력' value={country}
+          <input type='text' placeholder='국가 입력' value={country}
             onChange={inputCountryHandler}></input>
         </div>
         <div className='input-field'>
           <label>금메달</label>
-          <input value={gold}
+          <input type='number' value={gold}
             onChange={inputGoldHandler}></input>
         </div>
         <div className='input-field'>
           <label>은메달</label>
-          <input value={silver}
+          <input type='number' value={silver}
             onChange={inputSilverHandler}></input>
         </div>
         <div className='input-field'>
           <label>동메달</label>
-          <input value={bronze}
+          <input type='number' value={bronze}
             onChange={inputBronzeHandler}></input>
         </div>
 
