@@ -53,7 +53,7 @@ function App() {
               medal = newMedal
               return medal;
             }
-            return medal
+            return medal;
           }))
       )
     }
@@ -66,7 +66,9 @@ function App() {
     const deletedMedals = medals.filter(function (medal) {
       return medal.country != country
     })
-    setmedals(deletedMedals);
+
+    const result = confirm("삭제하시겠습니까?")
+    if(result){setmedals(deletedMedals)};
   };
 
 
@@ -132,7 +134,17 @@ const Tbody = ({ medals, deleteMedalHandler }) => {
           </tr>
         </thead>
         {
-          medals.map((medal) => {
+          medals
+          .sort((a,b)=>{
+            return b.gold - a.gold
+          })
+          .sort((a,b)=>{
+            return b.silver - a.silver
+          })
+          .sort((a,b)=>{
+            return b.bronze - a.bronze
+          })
+          .map((medal) => {
             const { country, gold, silver, bronze } = medal;
 
             return (
