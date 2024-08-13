@@ -59,12 +59,12 @@ function App() {
 
 
   // 삭제 버튼
-  // const deleteMedalHandler = (id) => {
-  //   const deletedMedals = medals.filter(function (medal) {
-  //     return medal.id != id
-  //   })
-  //   setmedals(deletedMedals);
-  // };
+  const deleteMedalHandler = (country) => {
+    const deletedMedals = medals.filter(function (medal) {
+      return medal.country != country
+    })
+    setmedals(deletedMedals);
+  };
 
 
   return (
@@ -101,7 +101,7 @@ function App() {
       <div>
         {/* 메달집계*/}
 
-        <Tbody medals={medals} />
+        <Tbody medals={medals} deleteMedalHandler={deleteMedalHandler}/>
 
 
       </div>
@@ -112,7 +112,8 @@ function App() {
 export default App
 
 //메달현황 컴포넌트
-const Tbody = ({ medals }) => {
+const Tbody = ({ medals, deleteMedalHandler}) => {
+  console.log(medals)
   return (
     medals.length === 0 ? (
       <p>아직 추가된 국가가 없습니다. 메달을 추적하세요!</p>
@@ -139,7 +140,7 @@ const Tbody = ({ medals }) => {
                   <td>{silver}</td>
                   <td>{bronze}</td>
                   <td>
-                    <button >삭제</button>
+                    <button onClick={() => deleteMedalHandler(country)}>삭제</button>
                   </td>
                 </tr>
               </tbody>
