@@ -145,13 +145,7 @@ const Table = ({ medals, deleteMedalHandler }) => {
         {
           medals
           .sort((a,b)=>{
-            return b.gold - a.gold
-          })
-          .sort((a,b)=>{
-            return b.silver - a.silver
-          })
-          .sort((a,b)=>{
-            return b.bronze - a.bronze
+            return b.gold - a.gold || b.silver - a.silver || b.bronze - a.bronze
           })
           .map((medal) => {
             const { country, gold, silver, bronze } = medal;
