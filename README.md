@@ -1,4 +1,4 @@
-# React + Vite
+# 올림픽 메달 집계
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
