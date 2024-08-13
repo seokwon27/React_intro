@@ -1,0 +1,84 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.input-group{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.button-group{
+  flex-shrink: 0;
+  display: flex;
+  gap: 10px;
+  align-items: end;
+}
+
+.button-group > button {
+  padding: 10px 20px;
+  background-color: #fc0;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  align-self: center;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+td{
+  vertical-align: middle;
+  color: #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #e6e6fa;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+th {
+  background-color: #003580;
+  color: #fff;
+  font-weight: 700;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+td button {
+  background-color: #dc3545;
+  border: none;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
