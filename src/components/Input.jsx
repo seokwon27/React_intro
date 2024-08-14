@@ -21,6 +21,14 @@ function Input({ medals, setmedals }) {
     setBronze(Number(e.target.value));
   };
 
+  //인풋 초기화 함수
+  const resetInput = () => {
+    setCountry("");
+    setGold("0");
+    setSilver("0");
+    setBronze("0");
+  };
+
   //국가추가 버튼
   const addMedalHandler = (event) => {
     event.preventDefault();
@@ -39,6 +47,7 @@ function Input({ medals, setmedals }) {
     })
       ? alert("이미 존재한는 국가명입니다. 업데이트를 사용해주세요.")
       : setmedals([...medals, newMedal]) || alert("추가 완료");
+    resetInput();
   };
 
   //업데이트 버튼
@@ -50,23 +59,22 @@ function Input({ medals, setmedals }) {
     if (!medals.some((medal) => medal.country === country)) {
       return alert("일치하는 국가명이 없습니다. 추가 기능을 사용해주세요.");
     } else {
-      alert("업데이트 완료");
-      return setmedals(
+      setmedals(
         medals.map((medal) => {
           if (medal.country === country) {
-            const newMedal = {
+            return {
               ...medal,
               country: country,
               gold: gold,
               silver: silver,
               bronze: bronze,
             };
-            medal = newMedal;
-            return medal;
           }
           return medal;
         })
       );
+      alert("업데이트 완료");
+      resetInput();
     }
   };
 
