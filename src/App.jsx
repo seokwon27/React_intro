@@ -20,7 +20,7 @@ function App() {
 
 
   //국가추가 버튼
-  const handleAddCountry = (event) => {
+  const addMedalHandler = (event) => {
     event.preventDefault();
     const newMedal = {
       country: country,
@@ -36,7 +36,7 @@ function App() {
   }
 
   //업데이트 버튼
-  const handleUpdateCountry = (event) => {
+  const updateMedalHandler = (event) => {
     event.preventDefault();
     if(!country){ return alert('국가명을 입력해주세요.')}
     if (!medals.some((medal) => medal.country === country)) {
@@ -108,8 +108,8 @@ function App() {
         </div>
 
         <div className='button-group'>
-          <button onClick={handleAddCountry}>국가 추가</button>
-          <button onClick={handleUpdateCountry}>업데이트</button>
+          <button onClick={addMedalHandler}>국가 추가</button>
+          <button onClick={updateMedalHandler}>업데이트</button>
         </div>
       </form>
       <div>
