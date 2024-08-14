@@ -76,4 +76,6 @@
 ## 수정 내용
 
 * **24.08.14**
-* *니니니
+  - 일부 함수명을 다른 함수명과 일관성이 있도록 변경하였습니다.
+    + 기존: **handleAddCountry** , **handleUpdateCountry**
+    + <span style="color:blueviolet">변경: **addMedalHandler** , **updateMedalHandler**</span>
