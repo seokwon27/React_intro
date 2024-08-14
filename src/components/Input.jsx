@@ -31,13 +31,14 @@ function Input({ medals, setmedals }) {
       bronze: bronze,
     };
     if (!country) {
-      return alert("국가명을 입력해주세요.");
+      alert("국가명을 입력해주세요.");
+      return;
     }
     medals.some((medal) => {
       return medal.country === country;
     })
-      ? alert("이미 존재한는 국가명입니다.")
-      : setmedals([...medals, newMedal]);
+      ? alert("이미 존재한는 국가명입니다. 업데이트를 사용해주세요.")
+      : setmedals([...medals, newMedal]) || alert("추가 완료");
   };
 
   //업데이트 버튼
@@ -47,8 +48,9 @@ function Input({ medals, setmedals }) {
       return alert("국가명을 입력해주세요.");
     }
     if (!medals.some((medal) => medal.country === country)) {
-      return alert("일치하는 국가명이 없습니다.");
+      return alert("일치하는 국가명이 없습니다. 추가 기능을 사용해주세요.");
     } else {
+      alert("업데이트 완료");
       return setmedals(
         medals.map((medal) => {
           if (medal.country === country) {
