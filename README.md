@@ -12,6 +12,7 @@
   - [메달 테이블 초기화하기](#메달-테이블-초기화하기)
 - [컴포넌트](#컴포넌트)
 - [수정 내용](#수정-내용)
+  -[[24.08.14]](#[24.08.14])
 
 
 ## 기능
@@ -75,7 +76,14 @@
 
 ## 수정 내용
 
-* **24.08.14**
-  - 일부 함수명을 다른 함수명과 일관성이 있도록 변경하였습니다.
-    + 기존: **handleAddCountry** , **handleUpdateCountry**
-    + <span style="color:blueviolet">변경: **addMedalHandler** , **updateMedalHandler**</span>
+### [24.08.14]
+  * '국가 추가', '업데이트' 함수명을 다른 함수명과 일관성이 있도록 변경하였습니다.
+    - 기존: **handleAddCountry** , **handleUpdateCountry**
+    - 변경: **addMedalHandler** , **updateMedalHandler**
+
+  * 사용자 경험 개선을 위한 기능이 추가되었습니다.
+    -'국가추가', '업데이트'버튼 작동 후 완료 알림이 출력됩니다.
+    -버튼 클릭시 인풋창이 초기화 됩니다.
+
+  * '컴포넌트'가 분리되었습니다.
+    - 기존 App.jsx 에 모두 작성되어있던 컴포넌트와 함수를 **'Title.jsx'**, **'Input.jsx'**, **'MedalTable.jsx'** 로 분리했습니다.
